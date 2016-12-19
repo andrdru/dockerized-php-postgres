@@ -21,15 +21,10 @@ services:
         networks:
             - code-network
     db:
-        image: postrges:9.5.5
+        image: postgres:latest
         restart: always
         ports:
             - "5432:5432"
-        #environment:
-        #    MYSQL_ROOT_PASSWORD: 123456
-        #    MYSQL_USER: dev
-        #    MYSQL_PASSWORD: 123456
-        #    MYSQL_DATABASE: myapp
         volumes:
             - ./db_data:/var/lib/postgresql/data
         networks:
