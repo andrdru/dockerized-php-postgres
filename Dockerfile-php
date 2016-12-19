@@ -1,0 +1,5 @@
+FROM php:fpm
+
+#RUN docker-php-ext-install php_pgsql
+RUN docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
+    && docker-php-ext-install pgsql pdo_pgsql
