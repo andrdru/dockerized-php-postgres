@@ -12,10 +12,7 @@ services:
         networks:
             - code-network
     php:
-        build:
-            context: .
-            dockerfile: Dockerfile-php
-        image: php:fpm
+        image: andrdru/php-fpm
         restart: always
         volumes:
             - ./src:/src
