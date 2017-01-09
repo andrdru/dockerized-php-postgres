@@ -16,6 +16,8 @@ services:
         restart: always
         volumes:
             - ./src:/src
+            - ./exim4/update-exim4.conf.conf:/etc/exim4/update-exim4.conf.conf
+            - ./exim4/mailname:/etc/mailname
         networks:
             - code-network
     db:
