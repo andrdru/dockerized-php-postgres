@@ -16,6 +16,7 @@ services:
         restart: always
         volumes:
             - ./src:/src
+            - /var/www/.ssh:/var/www/.ssh
             - ./exim4/update-exim4.conf.conf:/etc/exim4/update-exim4.conf.conf
             - ./exim4/mailname:/etc/mailname
         networks:
