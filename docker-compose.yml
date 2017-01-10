@@ -7,7 +7,7 @@ services:
             - "8080:80"
         volumes:
             - ./src:/src
-            - ./site.conf:/etc/nginx/conf.d/default.conf
+            - ./config/site.conf:/etc/nginx/conf.d/default.conf
             - ./db_data:/db_data
         networks:
             - code-network
@@ -17,8 +17,8 @@ services:
         volumes:
             - ./src:/src
             - /var/www/.ssh:/var/www/.ssh
-            - ./exim4/update-exim4.conf.conf:/etc/exim4/update-exim4.conf.conf
-            - ./exim4/mailname:/etc/mailname
+            - ./config/exim4/update-exim4.conf.conf:/etc/exim4/update-exim4.conf.conf
+            - ./config/exim4/mailname:/etc/mailname
         networks:
             - code-network
     db:
