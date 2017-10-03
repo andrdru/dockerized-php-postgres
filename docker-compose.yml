@@ -18,6 +18,7 @@ services:
             - ./src:/src
             - /var/www/.ssh:/var/www/.ssh
             - ./config/php/conf.ini:/usr/local/etc/php/conf.d/conf.ini
+            - ./config/php/extension.ini:/usr/local/etc/php/conf.d/extension.ini
             - ./config/exim4/update-exim4.conf.conf:/etc/exim4/update-exim4.conf.conf
             - ./config/exim4/mailname:/etc/mailname
         networks:
