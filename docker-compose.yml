@@ -1,5 +1,6 @@
 version: '2'
 services:
+
     web:
         image: nginx:latest
         restart: always
@@ -11,6 +12,7 @@ services:
             - ./db_data:/db_data
         networks:
             - code-network
+
     php:
         image: andrdru/php-fpm
         restart: always
@@ -23,19 +25,25 @@ services:
             - ./config/exim4/mailname:/etc/mailname
         networks:
             - code-network
+
     db:
         image: postgres:latest
         restart: always
         ports:
             - "5432:5432"
-        environment:
-            POSTGRES_DB: myappdb
-            POSTGRES_USER: admin
-            POSTGRES_PASSWORD: pleasechangeme
+        env_file:
+            - ./docker-compose.env
         volumes:
             - ./db_data:/var/lib/postgresql/data
         networks:
             - code-network
+
+#    apidoc:
+#        image: andrdru/apidoc
+#        volumes:
+#            - ./src:/apidoc
+#        networks:
+#            - code-network
 networks:
     code-network:
         driver: bridge
